@@ -1,10 +1,14 @@
 import React, { PureComponent } from 'react'
 
 class ListItem extends PureComponent {
-  render() {
-    const { onClick, text } = this.props
+  handleOnClick = () => {
+    this.props.onClick(this.props.id)
+  }
 
-    return (<div onClick={ onClick }>{text}</div>)
+  render() {
+    const { text } = this.props
+
+    return (<div onClick={ this.handleOnClick }>{text}</div>)
   }
 }
 

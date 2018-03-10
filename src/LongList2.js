@@ -8,7 +8,7 @@ class LongList2 extends React.Component {
     items: data,
   }
 
-  onClick(id) {
+  onClick = (id) => {
     const newState = this.state.items.filter(n => n._id !== id)
     this.setState({ items: newState })
   }
@@ -16,7 +16,7 @@ class LongList2 extends React.Component {
   render() {
     return (
       <div>
-        { this.state.items.map((item, index) => <ListItem key={ item._id } onClick={ () => this.onClick(item._id) } text={ item.name } />) }
+        { this.state.items.map((item, index) => <ListItem key={ item._id } onClick={ this.onClick } id={ item._id } text={ item.name } />) }
       </div>
     )
   }
