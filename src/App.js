@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import LongList2 from './LongList2'
+
+// 1.
+// Make a long list with items that are editable
+// Row [ text ] [ text ] [ text ]
+// Row [ text ] [ text ] [ text ]
+// Row [ text ] [ text ] [ text ]
+// Row [ text ] [ text ] [ text ]
+//
+// 2. Make a long list where on click item can be removed
 
 class App extends Component {
   render() {
@@ -13,6 +23,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <LongList2 />
       </div>
     );
   }
