@@ -1,25 +1,25 @@
 import React from 'react'
-import data from './data.js'
+import { connect } from 'react-redux'
 import ListItem from './ListItem'
 
+import { deleteById } from './names.reducer'
 
 class LongList2 extends React.Component {
-  state = {
-    items: data,
-  }
-
-  onClick = (id) => {
-    const newState = this.state.items.filter(n => n._id !== id)
-    this.setState({ items: newState })
-  }
-
   render() {
     return (
       <div>
-        { this.state.items.map((item, index) => <ListItem key={ item._id } onClick={ this.onClick } id={ item._id } text={ item.name } />) }
+        { this.props.names.map((item, index) => <ListItem key={ item.get('_id') } onClick={ this.props.deleteById } id={ item.get('_id') } text={ item.get('name') } />) }
       </div>
     )
   }
 }
 
-export default LongList2
+const mapStateToProps = state => ({
+  names: state.names.names,
+})
+
+const mapDispatchToProps = dispatch => ({
+  deleteById: id => dispatch(deleteById(id)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LongList2)

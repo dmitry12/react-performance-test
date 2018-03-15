@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 
 class ListItem extends PureComponent {
   handleOnClick = () => {
-    this.props.onClick(this.props.id)
+    this.props.onClick(this.props.id, this.props.listId)
   }
 
   render() {
