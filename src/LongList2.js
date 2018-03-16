@@ -2,24 +2,21 @@ import React from 'react'
 import { connect } from 'react-redux'
 import ListItem from './ListItem'
 
-import { deleteById } from './names.reducer'
+const { whyDidYouUpdate } = require('why-did-you-update')
+whyDidYouUpdate(React)
 
 class LongList2 extends React.Component {
   render() {
     return (
       <div>
-        { this.props.names.map((item, index) => <ListItem key={ item.get('_id') } onClick={ this.props.deleteById } id={ item.get('_id') } text={ item.get('name') } />) }
+        { this.props.ids.map((id) => <ListItem key={ id } id={ id } />) }
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  names: state.names.names,
+  ids: state.names.ids,
 })
 
-const mapDispatchToProps = dispatch => ({
-  deleteById: id => dispatch(deleteById(id)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(LongList2)
+export default connect(mapStateToProps)(LongList2)

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import LongList2 from './LongList2'
-import { whyDidYouUpdate } from 'why-did-you-update'
 import { Provider } from 'react-redux'
 
 
@@ -16,8 +15,6 @@ const rootReducer = combineReducers({
 })
 
 const store = createStore(rootReducer)
-
-// whyDidYouUpdate(React)
 
 class App extends Component {
   render() {
@@ -33,7 +30,6 @@ class App extends Component {
           </p>
 
           <LongList2 id={0} />
-          <LongList2 id={1} />
         </div>
       </Provider>
     );
