@@ -11,18 +11,19 @@ for (let i = 0; i < data.length; i++) {
 }
 
 function ids(state = initialIds, action) {
-  switch (action.type) {
-
-    case DELETE_BY_ID:
-      return state.filter(n => n !== action.payload.id)
-
-    default:
-      return state
-  }
+  return state
 }
 
 const names = (state = initialState, action) => {
   switch (action.type) {
+
+    case DELETE_BY_ID:
+      const item = state[action.payload.id]
+      return {
+        ...state,
+        [action.payload.id]: { ...item, isHidden: true },
+      }
+
     default:
       return state
   }

@@ -10,7 +10,7 @@ class ListItem extends PureComponent {
   render() {
     const { item } = this.props
 
-    return (<div onClick={ this.handleOnClick }>{item.name}</div>)
+    return (!item.isHidden && <div onClick={ this.handleOnClick }>{item.name}</div>)
   }
 }
 
