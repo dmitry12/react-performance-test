@@ -3,14 +3,10 @@ import { connect } from 'react-redux'
 import { deleteById } from './names.reducer'
 
 class ListItem extends PureComponent {
-  handleOnClick = () => {
-    this.props.deleteById(this.props.id)
-  }
-
   render() {
     const { item } = this.props
 
-    return (!item.isHidden && <div onClick={ this.handleOnClick }>{item.name}</div>)
+    return (!item.isHidden && <div onClick={ () => this.props.deleteById(this.props.id) }>{item.name}</div>)
   }
 }
 
